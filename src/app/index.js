@@ -7,6 +7,7 @@ require('./css/index.css');
 
 //module requires
 let TodoItem = require('./todoItem');
+let AddItem = require('./addItem');
 
 //TodoComponent
 let TodoComponent = React.createClass({
@@ -29,11 +30,13 @@ let TodoComponent = React.createClass({
       <div id="todo-list">
         <p onClick={this.clicked}>My Life</p>
         <ul>{todos}</ul>
+        <AddItem onAdd={this.onAdd}/>
       </div>
     );
   },//render
 
   //custom functions
+
   //clicked property
   clicked: function(){
     console.log('clicked')
@@ -47,7 +50,16 @@ let TodoComponent = React.createClass({
     this.setState({
       todos: updatedTodos
     })
+  },
+
+  onAdd: function(item){
+      let updatedTodos = this.state.todos;
+      updatedTodos.push(item);
+      this.setState({
+        todos: updatedTodos
+      })
   }
+
 });
 
 reactDom.render(<TodoComponent/>, document.getElementById('todo-wrapper')) //rendering it to the DOM
