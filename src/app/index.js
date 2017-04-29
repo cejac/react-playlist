@@ -3,11 +3,25 @@
 let React = require('react'); //var needs to be capitalized
 let reactDom = require('react-dom');
 require('./css/index.css');
-
+import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
 
 //module requires
 let TodoItem = require('./todoItem');
 let AddItem = require('./addItem');
+let About = require('./about');
+
+let App = React.createClass({
+  render: function(){
+    return(
+      <Router>
+        <Switch>
+          <Route exact={true} path={'/'} component={TodoComponent}></Route>
+          <Route path={'/about'} component={About}></Route>
+        </Switch>
+      </Router>
+    )
+  }
+});
 
 //TodoComponent
 let TodoComponent = React.createClass({
@@ -62,18 +76,18 @@ let TodoComponent = React.createClass({
 
   //lifecycle functions
   componentWillMount: function(){
-    console.log('componentWillMount')
+    console.log('componentWillMount');
   },
 
   componentDidlMount: function(){
-    console.log('componentDidlMount')
+    console.log('componentDidlMount');
     //good for any grabbing of external data
   },
 
   componentWillUpdate: function(){
-    console.log('componentWillUpdate')
+    console.log('componentWillUpdate');
   }
-  
+
 });
 
-reactDom.render(<TodoComponent/>, document.getElementById('todo-wrapper')) //rendering it to the DOM
+reactDom.render(<App />, document.getElementById('todo-wrapper')) //rendering it to the DOM
