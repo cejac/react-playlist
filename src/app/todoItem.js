@@ -1,26 +1,23 @@
-var React = require('react');
-var ReactDom = require('react-dom');
-
-//CSS requires
+let React = require('react'); //var needs to be capitalized
 require('./css/todoItem.css');
 
-//Create TodoItem component
-var TodoItem = React.createClass({
-    render: function(){
-        return(
-            <li>
-                <div className="todo-item">
-                    <span className="item-name" ref="thisItem">{this.props.item}</span>
-                    <span className="item-remove" onClick={this.handleDelete}> x </span>
-                </div>
-            </li>
-        );
-    },
+//Creae TodoItem component
+let TodoItem = React.createClass({
+  render: function(){
+    return(
+      <li>
+        <div className="todo-item">
+          <span className="item-name">{this.props.item}</span>
+          <span className="item-delete" onClick={this.handleDelete}> [remove] </span>
+        </div>
+      </li>
+    )
+  },
 
-    //Custom functions
-    handleDelete: function(){
-        this.props.onDelete(this.props.item);
+  //custom functions
+  handleDelete: function(){
+    this.props.onDelete(this.props.item)
     }
-});
+})
 
-module.exports = TodoItem;
+module.exports = TodoItem

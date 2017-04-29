@@ -1,15 +1,15 @@
-var React = require('react');
-var Link = require('react-router').Link;
+let React = require('react');
+import {Link} from 'react-router-dom';
 
-var About = React.createClass({
-    render: function(){
-        return(
-            <div>
-                <Link to={"/"}>Home</Link>
-                <h2>All about me</h2>
-            </div>
-        );
-    }
-});
+let About = React.createClass({
+  render: function(){
+    return(
+      <div>
+        <Link to={'/'}>Home</Link>
+        <h2>All About Me</h2>
+      </div>
+    )
+  }
+})
 
 module.exports = About;
