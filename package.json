@@ -1,5 +1,5 @@
 {
-	"name": "react-playlist",
+  "name": "react-playlist",
 	"version": "1.0.0",
 	"main": "index.js",
 	"scripts": {
@@ -23,4 +23,3 @@
 		"webpack": "^2.4.1",
 		"webpack-dev-server": "^2.4.4"
 	}
-}
