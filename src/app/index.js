@@ -58,8 +58,22 @@ let TodoComponent = React.createClass({
       this.setState({
         todos: updatedTodos
       })
-  }
+  },
 
+  //lifecycle functions
+  componentWillMount: function(){
+    console.log('componentWillMount')
+  },
+
+  componentDidlMount: function(){
+    console.log('componentDidlMount')
+    //good for any grabbing of external data
+  },
+
+  componentWillUpdate: function(){
+    console.log('componentWillUpdate')
+  }
+  
 });
 
 reactDom.render(<TodoComponent/>, document.getElementById('todo-wrapper')) //rendering it to the DOM
