@@ -42,6 +42,7 @@ let TodoComponent = React.createClass({
 
     return(
       <div id="todo-list">
+        <Link to={'/about'}>About</Link>
         <p onClick={this.clicked}>My Life</p>
         <ul>{todos}</ul>
         <AddItem onAdd={this.onAdd}/>
