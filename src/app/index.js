@@ -2,6 +2,11 @@
 
 let React = require('react'); //var needs to be capitalized
 let reactDom = require('react-dom');
+require('./css/index.css');
+
+
+//module requires
+let TodoItem = require('./todoItem');
 
 //TodoComponent
 let TodoComponent = React.createClass({
@@ -44,25 +49,5 @@ let TodoComponent = React.createClass({
     })
   }
 });
-
-
-//TodoItem Component
-let TodoItem = React.createClass({
-  render: function(){
-    return(
-      <li>
-        <div className="todo-item">
-          <span className="item-name">{this.props.item}</span>
-          <span className="item-delete" onClick={this.handleDelete}> [remove] </span>
-        </div>
-      </li>
-    )
-  },
-
-  //custom functions
-  handleDelete: function(){
-    this.props.onDelete(this.props.item)
-    }
-})
 
 reactDom.render(<TodoComponent/>, document.getElementById('todo-wrapper')) //rendering it to the DOM
